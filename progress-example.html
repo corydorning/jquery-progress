@@ -1,0 +1,108 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- use chrome frame if installed -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Progress Example | jQuery Plugin</title>
+  <meta name="description" content="jQuery Session Timeout Plugin">
+  <meta name="author" content="Cory Dorning">
+
+  <!-- Mobile viewport optimization -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- stylesheets -->
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/black-tie/jquery-ui.min.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+  <header role="banner">
+
+    <h1>jQuery Progress Plugin</h1>
+
+  </header>
+  <!-- @banner -->
+
+
+  <div role="main">
+
+    <!-- content -->
+    <p>This is a jQuery Plugin displays the progress of an action until it is completed.</p>
+
+    <p>You can change any of the following options to customize it to fit your needs:</p>
+    <pre>
+<code>
+// options
+$.uiProgress({
+  title: 'Progress', // dialog title
+  content: 'Please wait...', // dialog content string or html
+  continuous: false, // continuously poll even if 'finished'
+  modal: true, // modal dialog?
+  pollTimer: 5, // how often plugin should poll, in seconds
+  ageTimeout: 3, // reload page if JSON data age exceeds this value, in milliseconds
+  url: null // JSON request URL, required
+});
+</code>
+</pre>
+
+    <p><strong>NOTE:</strong> The URL should returns JSON data with the following properties:</p>
+
+    <ul>
+      <li><code>"age"</code> - Age of the request, in milliseconds. Used to determine if request has timed out</li>
+      <li><code>"finished"</code> - Boolean value that represents if action is complete</li>
+      <li><code>"max"</code> - Maximum value of the progress bar (see: <a href="http://api.jqueryui.com/progressbar/#option-max">max</a>)</li>
+      <li><code>"value"</code> - The value of the progress bar (see: <a href="http://api.jqueryui.com/progressbar/#option-value">value</a>)</li>
+    </ul>
+
+  </div>
+  <!-- @main -->
+
+
+  <footer role="contentinfo">
+
+    <p>Authored By: Cory Dorning</p>
+
+  </footer>
+  <!-- @contentinfo -->
+
+
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Libraries -->
+  <!-- jQuery(UI): Google CDN w/ protocol relative URL; fall back to local if offline -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+  <!-- Site/App Scripts: concat and minify for prod -->
+  <script src="jquery-progress.js"></script>
+
+  <script>
+
+    // doc ready
+    (function($){
+
+      // call session timeout
+      $.uiProgress({
+        ageTimeout: 10000,
+        continuous: true,
+        pollTimer: 5,
+        url: 'progress.json'
+      });
+
+    })(jQuery);
+
+  </script>
+
+  <!-- end scripts -->
+
+</body>
+</html>
