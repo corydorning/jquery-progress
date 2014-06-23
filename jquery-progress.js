@@ -1,4 +1,4 @@
-/* jquery-progress-0.1.js
+/*! jquery-progress-0.1.js
  *
  * Authored by: Cory Dorning
  * Website: http://corydorning.com/projects/jquery-progress
