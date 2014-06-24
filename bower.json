@@ -1,0 +1,23 @@
+{
+  "name": "jquery-progress",
+  "main": "jquery-progress.js",
+  "version": "1.0.0",
+  "homepage": "https://github.com/corydorning/jquery-progress",
+  "authors": [
+    "Cory Dorning <cory@dorning.me>"
+  ],
+  "description": "The jQuery progress method will poll a given url and update the current progress of an action. Expects the 'url' to return an object with the following properties: finished, value, max",
+  "keywords": [
+    "jquery",
+    "jquery ui",
+    "progress"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
